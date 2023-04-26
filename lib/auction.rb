@@ -22,9 +22,11 @@ class Auction
 
   def potential_revenue
     rev = 0
-    bids.values.each do |number|
-      rev += number
-      require 'pry'; binding.pry
+    items.each do |item|
+      if item.current_high_bid != nil
+        rev += item.current_high_bid
+      end
     end
+    rev
   end
 end
